@@ -116,6 +116,7 @@
       },
       {
         "name": "Dim_Dates",
+        "dataCategory": "Time",
         "columns": [
           {
             "name": "ID",
@@ -126,6 +127,7 @@
           {
             "name": "Date",
             "dataType": "dateTime",
+            "isKey": true,
             "sourceColumn": "Date",
             "formatString": "General Date",
             "sourceProviderType": "DBDate"
