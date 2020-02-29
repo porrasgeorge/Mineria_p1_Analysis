@@ -3,6 +3,475 @@
   "compatibilityLevel": 1200,
   "model": {
     "culture": "es-ES",
+    "dataSources": [
+      {
+        "name": "SqlServer CRONOSUTN01 ION_DW",
+        "connectionString": "Provider=SQLNCLI11;Data Source=CRONOS\\UTN01;Initial Catalog=ION_DW;Integrated Security=SSPI;Persist Security Info=false",
+        "impersonationMode": "impersonateAccount",
+        "account": "Administrador",
+        "annotations": [
+          {
+            "name": "ConnectionEditUISource",
+            "value": "SqlServer"
+          }
+        ]
+      }
+    ],
+    "tables": [
+      {
+        "name": "Dim_Cause",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "sourceColumn": "ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Name",
+            "dataType": "string",
+            "sourceColumn": "Name",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "QuantityName",
+            "dataType": "string",
+            "sourceColumn": "QuantityName",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Dim_Cause",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[Dim_Cause].* FROM [dbo].[Dim_Cause] ",
+              "dataSource": "SqlServer CRONOSUTN01 ION_DW"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[Dim_Cause].* FROM [dbo].[Dim_Cause] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Dim_Cause"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "Dim_CauseValue",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "sourceColumn": "ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Name",
+            "dataType": "string",
+            "sourceColumn": "Name",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "QuantityName",
+            "dataType": "string",
+            "sourceColumn": "QuantityName",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Dim_CauseValue",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[Dim_CauseValue].* FROM [dbo].[Dim_CauseValue] ",
+              "dataSource": "SqlServer CRONOSUTN01 ION_DW"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[Dim_CauseValue].* FROM [dbo].[Dim_CauseValue] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Dim_CauseValue"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "Dim_Dates",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "sourceColumn": "ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Date",
+            "formatString": "General Date",
+            "sourceProviderType": "DBDate"
+          },
+          {
+            "name": "Year",
+            "dataType": "int64",
+            "sourceColumn": "Year",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Month",
+            "dataType": "int64",
+            "sourceColumn": "Month",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Day",
+            "dataType": "int64",
+            "sourceColumn": "Day",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "MonthName",
+            "dataType": "string",
+            "sourceColumn": "MonthName",
+            "sourceProviderType": "Char"
+          },
+          {
+            "name": "DayName",
+            "dataType": "string",
+            "sourceColumn": "DayName",
+            "sourceProviderType": "Char"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Dim_Dates",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[Dim_Dates].* FROM [dbo].[Dim_Dates] ",
+              "dataSource": "SqlServer CRONOSUTN01 ION_DW"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[Dim_Dates].* FROM [dbo].[Dim_Dates] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Dim_Dates"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "Dim_Effect",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "sourceColumn": "ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Name",
+            "dataType": "string",
+            "sourceColumn": "Name",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "QuantityName",
+            "dataType": "string",
+            "sourceColumn": "QuantityName",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Dim_Effect",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[Dim_Effect].* FROM [dbo].[Dim_Effect] ",
+              "dataSource": "SqlServer CRONOSUTN01 ION_DW"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[Dim_Effect].* FROM [dbo].[Dim_Effect] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Dim_Effect"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "Dim_EffectValue",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "sourceColumn": "ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Name",
+            "dataType": "string",
+            "sourceColumn": "Name",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "QuantityName",
+            "dataType": "string",
+            "sourceColumn": "QuantityName",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Dim_EffectValue",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[Dim_EffectValue].* FROM [dbo].[Dim_EffectValue] ",
+              "dataSource": "SqlServer CRONOSUTN01 ION_DW"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[Dim_EffectValue].* FROM [dbo].[Dim_EffectValue] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Dim_EffectValue"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "Dim_Source",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "sourceColumn": "ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Cooperative",
+            "dataType": "string",
+            "sourceColumn": "Cooperative",
+            "sourceProviderType": "WChar"
+          },
+          {
+            "name": "MeterName",
+            "dataType": "string",
+            "sourceColumn": "MeterName",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Dim_Source",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[Dim_Source].* FROM [dbo].[Dim_Source] ",
+              "dataSource": "SqlServer CRONOSUTN01 ION_DW"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[Dim_Source].* FROM [dbo].[Dim_Source] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Dim_Source"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "Fact_EventLog2",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "sourceColumn": "ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "EventLogID",
+            "dataType": "int64",
+            "sourceColumn": "EventLogID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "SourceID",
+            "dataType": "int64",
+            "sourceColumn": "SourceID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "DateID",
+            "dataType": "int64",
+            "sourceColumn": "DateID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "CauseID",
+            "dataType": "int64",
+            "sourceColumn": "CauseID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "CauseValueID",
+            "dataType": "int64",
+            "sourceColumn": "CauseValueID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "EffectID",
+            "dataType": "int64",
+            "sourceColumn": "EffectID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "EffectValueID",
+            "dataType": "int64",
+            "sourceColumn": "EffectValueID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "TranType",
+            "dataType": "int64",
+            "sourceColumn": "TranType",
+            "sourceProviderType": "UnsignedTinyInt"
+          },
+          {
+            "name": "Priority",
+            "dataType": "int64",
+            "sourceColumn": "Priority",
+            "sourceProviderType": "UnsignedTinyInt"
+          },
+          {
+            "name": "Type",
+            "dataType": "int64",
+            "sourceColumn": "Type",
+            "sourceProviderType": "UnsignedTinyInt"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Fact_EventLog2",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[Fact_EventLog2].* FROM [dbo].[Fact_EventLog2] ",
+              "dataSource": "SqlServer CRONOSUTN01 ION_DW"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[Fact_EventLog2].* FROM [dbo].[Fact_EventLog2] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Fact_EventLog2"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      }
+    ],
+    "relationships": [
+      {
+        "name": "a3ef10eb-9db5-4740-bad9-d2126ea7fb81",
+        "fromTable": "Fact_EventLog2",
+        "fromColumn": "CauseID",
+        "toTable": "Dim_Cause",
+        "toColumn": "ID"
+      },
+      {
+        "name": "2a6a6550-ed49-4419-892c-dd90cd0875ac",
+        "fromTable": "Fact_EventLog2",
+        "fromColumn": "CauseValueID",
+        "toTable": "Dim_CauseValue",
+        "toColumn": "ID"
+      },
+      {
+        "name": "22ba8c65-144b-48eb-acea-1c5c6f45b64d",
+        "fromTable": "Fact_EventLog2",
+        "fromColumn": "DateID",
+        "toTable": "Dim_Dates",
+        "toColumn": "ID"
+      },
+      {
+        "name": "cd2b7133-17c0-4e14-8aa5-92a7f01352aa",
+        "fromTable": "Fact_EventLog2",
+        "fromColumn": "EffectID",
+        "toTable": "Dim_Effect",
+        "toColumn": "ID"
+      },
+      {
+        "name": "f659cd45-d06b-4a9f-96d2-aa285b935868",
+        "fromTable": "Fact_EventLog2",
+        "fromColumn": "EffectValueID",
+        "toTable": "Dim_EffectValue",
+        "toColumn": "ID"
+      },
+      {
+        "name": "80d54b4e-8f2e-4787-b5cd-f9572e8a989d",
+        "fromTable": "Fact_EventLog2",
+        "fromColumn": "SourceID",
+        "toTable": "Dim_Source",
+        "toColumn": "ID"
+      }
+    ],
     "annotations": [
       {
         "name": "ClientCompatibilityLevel",
