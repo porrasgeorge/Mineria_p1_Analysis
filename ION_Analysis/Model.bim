@@ -38,13 +38,6 @@
             "dataType": "string",
             "sourceColumn": "QuantityName",
             "sourceProviderType": "WChar"
-          },
-          {
-            "type": "calculated",
-            "name": "Quantity",
-            "dataType": "int64",
-            "isDataTypeInferred": true,
-            "expression": "1"
           }
         ],
         "partitions": [
@@ -123,6 +116,7 @@
       },
       {
         "name": "Dim_Dates",
+        "dataCategory": "Time",
         "columns": [
           {
             "name": "ID",
@@ -133,6 +127,7 @@
           {
             "name": "Date",
             "dataType": "dateTime",
+            "isKey": true,
             "sourceColumn": "Date",
             "formatString": "General Date",
             "sourceProviderType": "DBDate"
@@ -159,6 +154,7 @@
             "name": "MonthName",
             "dataType": "string",
             "sourceColumn": "MonthName",
+            "sortByColumn": "Month",
             "sourceProviderType": "Char"
           },
           {
@@ -436,6 +432,13 @@
             "dataType": "int64",
             "sourceColumn": "PriorityID",
             "sourceProviderType": "Integer"
+          },
+          {
+            "type": "calculated",
+            "name": "Quantity",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "expression": "1"
           }
         ],
         "partitions": [
