@@ -38,6 +38,13 @@
             "dataType": "string",
             "sourceColumn": "QuantityName",
             "sourceProviderType": "WChar"
+          },
+          {
+            "type": "calculated",
+            "name": "Quantity",
+            "dataType": "int64",
+            "isDataTypeInferred": true,
+            "expression": "1"
           }
         ],
         "partitions": [
@@ -116,7 +123,6 @@
       },
       {
         "name": "Dim_Dates",
-        "dataCategory": "Time",
         "columns": [
           {
             "name": "ID",
@@ -127,7 +133,6 @@
           {
             "name": "Date",
             "dataType": "dateTime",
-            "isKey": true,
             "sourceColumn": "Date",
             "formatString": "General Date",
             "sourceProviderType": "DBDate"
@@ -286,6 +291,48 @@
         ]
       },
       {
+        "name": "Dim_Priority",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "sourceColumn": "ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Priority",
+            "dataType": "string",
+            "sourceColumn": "Priority",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Dim_Priority",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[Dim_Priority].* FROM [dbo].[Dim_Priority] ",
+              "dataSource": "SqlServer CRONOSUTN01 ION_DW"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[Dim_Priority].* FROM [dbo].[Dim_Priority] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Dim_Priority"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
         "name": "Dim_Source",
         "columns": [
           {
@@ -385,22 +432,10 @@
             "sourceProviderType": "Integer"
           },
           {
-            "name": "TranType",
+            "name": "PriorityID",
             "dataType": "int64",
-            "sourceColumn": "TranType",
-            "sourceProviderType": "UnsignedTinyInt"
-          },
-          {
-            "name": "Priority",
-            "dataType": "int64",
-            "sourceColumn": "Priority",
-            "sourceProviderType": "UnsignedTinyInt"
-          },
-          {
-            "name": "Type",
-            "dataType": "int64",
-            "sourceColumn": "Type",
-            "sourceProviderType": "UnsignedTinyInt"
+            "sourceColumn": "PriorityID",
+            "sourceProviderType": "Integer"
           }
         ],
         "partitions": [
@@ -432,42 +467,49 @@
     ],
     "relationships": [
       {
-        "name": "a3ef10eb-9db5-4740-bad9-d2126ea7fb81",
+        "name": "bb6043a9-ae64-47c9-8a75-baa7f1f71563",
         "fromTable": "Fact_EventLog2",
         "fromColumn": "CauseID",
         "toTable": "Dim_Cause",
         "toColumn": "ID"
       },
       {
-        "name": "2a6a6550-ed49-4419-892c-dd90cd0875ac",
+        "name": "4af14611-c5d0-4f6f-ac66-d0bf664da1ed",
         "fromTable": "Fact_EventLog2",
         "fromColumn": "CauseValueID",
         "toTable": "Dim_CauseValue",
         "toColumn": "ID"
       },
       {
-        "name": "22ba8c65-144b-48eb-acea-1c5c6f45b64d",
+        "name": "46e9211f-822b-4a56-9ea9-38087bc4d8b5",
         "fromTable": "Fact_EventLog2",
         "fromColumn": "DateID",
         "toTable": "Dim_Dates",
         "toColumn": "ID"
       },
       {
-        "name": "cd2b7133-17c0-4e14-8aa5-92a7f01352aa",
+        "name": "b1ca7e37-10af-47d5-b1cc-333c487f1474",
         "fromTable": "Fact_EventLog2",
         "fromColumn": "EffectID",
         "toTable": "Dim_Effect",
         "toColumn": "ID"
       },
       {
-        "name": "f659cd45-d06b-4a9f-96d2-aa285b935868",
+        "name": "1655b471-bc97-42e0-bcd4-89f4a572358d",
         "fromTable": "Fact_EventLog2",
         "fromColumn": "EffectValueID",
         "toTable": "Dim_EffectValue",
         "toColumn": "ID"
       },
       {
-        "name": "80d54b4e-8f2e-4787-b5cd-f9572e8a989d",
+        "name": "59195f9d-77b8-4bcb-8eab-c2ffe36430dc",
+        "fromTable": "Fact_EventLog2",
+        "fromColumn": "PriorityID",
+        "toTable": "Dim_Priority",
+        "toColumn": "ID"
+      },
+      {
+        "name": "59ed2ab9-28d0-49a8-8e53-15f66b0169e9",
         "fromTable": "Fact_EventLog2",
         "fromColumn": "SourceID",
         "toTable": "Dim_Source",
