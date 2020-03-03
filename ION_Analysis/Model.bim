@@ -287,48 +287,6 @@
         ]
       },
       {
-        "name": "Dim_Priority",
-        "columns": [
-          {
-            "name": "ID",
-            "dataType": "int64",
-            "sourceColumn": "ID",
-            "sourceProviderType": "Integer"
-          },
-          {
-            "name": "Priority",
-            "dataType": "string",
-            "sourceColumn": "Priority",
-            "sourceProviderType": "WChar"
-          }
-        ],
-        "partitions": [
-          {
-            "name": "Dim_Priority",
-            "dataView": "full",
-            "source": {
-              "type": "query",
-              "query": " SELECT [dbo].[Dim_Priority].* FROM [dbo].[Dim_Priority] ",
-              "dataSource": "SqlServer CRONOSUTN01 ION_DW"
-            }
-          }
-        ],
-        "annotations": [
-          {
-            "name": "_TM_ExtProp_QueryDefinition",
-            "value": " SELECT [dbo].[Dim_Priority].* FROM [dbo].[Dim_Priority] "
-          },
-          {
-            "name": "_TM_ExtProp_DbTableName",
-            "value": "Dim_Priority"
-          },
-          {
-            "name": "_TM_ExtProp_DbSchemaName",
-            "value": "dbo"
-          }
-        ]
-      },
-      {
         "name": "Dim_Source",
         "columns": [
           {
@@ -460,6 +418,49 @@
           {
             "name": "_TM_ExtProp_DbTableName",
             "value": "Fact_EventLog2"
+          },
+          {
+            "name": "_TM_ExtProp_DbSchemaName",
+            "value": "dbo"
+          }
+        ]
+      },
+      {
+        "name": "Dim_Priority",
+        "columns": [
+          {
+            "name": "ID",
+            "dataType": "int64",
+            "sourceColumn": "ID",
+            "sourceProviderType": "Integer"
+          },
+          {
+            "name": "Priority",
+            "dataType": "string",
+            "sourceColumn": "Priority",
+            "sortByColumn": "ID",
+            "sourceProviderType": "WChar"
+          }
+        ],
+        "partitions": [
+          {
+            "name": "Dim_Priority",
+            "dataView": "full",
+            "source": {
+              "type": "query",
+              "query": " SELECT [dbo].[Dim_Priority].* FROM [dbo].[Dim_Priority] ",
+              "dataSource": "SqlServer CRONOSUTN01 ION_DW"
+            }
+          }
+        ],
+        "annotations": [
+          {
+            "name": "_TM_ExtProp_QueryDefinition",
+            "value": " SELECT [dbo].[Dim_Priority].* FROM [dbo].[Dim_Priority] "
+          },
+          {
+            "name": "_TM_ExtProp_DbTableName",
+            "value": "Dim_Priority"
           },
           {
             "name": "_TM_ExtProp_DbSchemaName",
