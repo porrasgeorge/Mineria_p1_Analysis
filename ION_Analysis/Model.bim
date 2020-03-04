@@ -410,6 +410,20 @@
             }
           }
         ],
+        "measures": [
+          {
+            "name": "Total  Quantity",
+            "expression": "COUNTA([Quantity])"
+          },
+          {
+            "name": "MesAnterior",
+            "expression": "CALCULATE([Total  Quantity], PARALLELPERIOD(Dim_Dates[Date],-1,MONTH))"
+          },
+          {
+            "name": "AnhoAnterior",
+            "expression": "IFERROR( CALCULATE([Total  Quantity], PARALLELPERIOD(Dim_Dates[Date],-12,MONTH)) ,BLANK())"
+          }
+        ],
         "annotations": [
           {
             "name": "_TM_ExtProp_QueryDefinition",
